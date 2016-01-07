@@ -50,8 +50,7 @@ class Snippet extends Model
 		    while (Snippet::where('code', $code)->count() != 0) {
 			    $code = substr(md5(microtime()),rand(0,26),8);
 		    }
-		    $this->code = $code;
-		    $this->save();
+		    $this->code = $code;		  
 		    
 		    return $code;
 	    }
