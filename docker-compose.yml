@@ -1,0 +1,17 @@
+web:  
+  build: .
+  ports:
+    - "8085:80"
+  volumes:
+    - .:/srv/www
+  links:
+    - db
+  environment:
+    - VIRTUAL_HOST=laravel.ganon.ovh
+db:
+  image: mysql:5.6
+  environment:
+    - MYSQL_ROOT_PASSWORD=root
+    - MYSQL_DATABASE=dockerapp
+    - MYSQL_USER=dockerapp
+    - MYSQL_PASSWORD=root
